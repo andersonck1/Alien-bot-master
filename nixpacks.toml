@@ -1,0 +1,19 @@
+[phases.setup]
+nixPkgs = [
+    "chromium",
+    "nss",
+    "nspr",
+    "libdrm",
+    "mesa",
+    "alsa-lib",
+    "cups",
+    "expat",
+    "fontconfig",
+    "libxkbcommon",
+    "pango",
+    "cairo"
+]
+
+[variables]
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "1"
+PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium"
