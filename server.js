@@ -1,4 +1,19 @@
-const axios = require('axios');
+const // Substitua o trecho do axios.post por isto:
+try {
+    const response = await axios.post('https://alienpg.com/api/game/bet', {
+        amount: 1.00,
+        gameId: 'crash-game'
+    }, {
+        headers: { 
+            'Authorization': 'Bearer ' + process.env.TOKEN, // Adicionamos o 'Bearer '
+            'Content-Type': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+    });
+    console.log("Sucesso:", response.data);
+} catch (e) {
+    console.log("Erro detalhado:", e.response ? e.response.data : e.message);
+}
 const express = require('express');
 const app = express();
 
@@ -15,7 +30,8 @@ async function rodarBot() {
     );
     console.log("Aposta enviada com sucesso!");
   } catch (e) { 
-    console.log("Erro na conexão ou Token inválido."); 
+    c console.log("Erro detalhado:", e.response ? e.response.data : e.message);
+
   }
 }
 
